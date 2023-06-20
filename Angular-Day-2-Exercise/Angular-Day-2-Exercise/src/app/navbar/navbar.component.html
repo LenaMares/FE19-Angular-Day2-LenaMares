@@ -1,0 +1,17 @@
+<div class="topnav">
+    <a class="active" routerLink="/">Home</a>
+    <a routerLink="/contact">Contact</a>
+
+
+    <div>
+        <p [class.vip]="counter >= 200">You reached VIP Status!</p>
+    </div>
+    
+    <button class="countBtn" (click)="countClick()">Donate 10 €</button>
+
+
+    <div class="counter">You donated {{ counter }} €</div>
+    
+
+
+  </div>

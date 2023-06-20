@@ -1,0 +1,29 @@
+<form [formGroup]="info" (ngSubmit)="onSubmit()">
+
+    <label for="name">Name: </label>
+    <input id="name" name="name" type="text" formControlName="name"><br>
+
+    <p *ngIf="info.invalid && info.touched">
+        <span *ngIf="info.controls.name.errors?.['required']">Please enter your name.</span>
+        <span *ngIf="info.controls.name.errors?.['minlength']">Your name must have at least 3 chars.</span>
+    </p>
+
+
+    <label for="email">Email: </label>
+    <input id="email" type="email" formControlName="email"><br>
+    <p *ngIf="info.invalid && info.touched">
+        <span *ngIf="info.controls.email.errors?.['required']">Please enter your Email.</span>
+        <span *ngIf="info.controls.email.errors?.['email']">Email is not valid.</span>
+    </p>
+
+
+    <label for="message">Your message: </label>
+    <input id="message" type="text" formControlName="message"><br>
+    <p *ngIf="info.invalid && info.touched">
+        <span *ngIf="info.controls.message.errors?.['required']">Please enter your message.</span>
+        <span *ngIf="info.controls.message.errors?.['maxlength']">Your message can only have 300 chars.</span>
+    </p>
+
+
+    <input type="submit" value="Submit">
+</form>

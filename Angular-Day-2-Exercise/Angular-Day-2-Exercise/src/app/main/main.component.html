@@ -1,0 +1,85 @@
+<h1>Our cars to rent</h1>
+
+<div class="container">
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
+        <div *ngFor="let car of cars" class="col">
+    <div>
+    
+    <div class="card" style="width: 18rem;">
+        <img src="{{car.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{car.name}}</h5>
+          <p class="card-text">{{car.power}} PS</p>
+          <p class="card-text">{{car.seats}} seats</p>
+          <p class="card-text">{{car.fuelType}}</p>
+          <p class="card-text">{{car.price}} € / day</p>
+          <a href="#" class="btn btn-primary">Book now</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    
+    </div>
+
+    <h1>Add cars to rent</h1>
+
+
+    <form [formGroup]="carInfo" (ngSubmit)="onSubmit()">
+
+
+      <label for="name">Name: </label>
+      <input id="name" name="name" type="text" formControlName="name"><br>
+  
+      <p *ngIf="carInfo.invalid && carInfo.touched">
+          <span *ngIf="carInfo.controls.name.errors?.['required']">Name can't be empty</span>
+      </p>
+
+
+
+      <label for="power">Power: </label>
+      <input id="pwer" name="power" type="text" formControlName="power"><br>
+  
+      <p *ngIf="carInfo.invalid && carInfo.touched">
+          <span *ngIf="carInfo.controls.name.errors?.['required']">Power can't be empty</span>
+      </p>
+
+
+
+      <label for="seats">Seats: </label>
+      <input id="seats" name="seats" type="text" formControlName="seats"><br>
+  
+      <p *ngIf="carInfo.invalid && carInfo.touched">
+          <span *ngIf="carInfo.controls.name.errors?.['required']">Seats can't be empty</span>
+      </p>
+
+
+      <label for="fuelType">fuelType: </label>
+      <input id="fuelType" name="fuelType" type="text" formControlName="fuelType"><br>
+  
+      <p *ngIf="carInfo.invalid && carInfo.touched">
+          <span *ngIf="carInfo.controls.name.errors?.['required']">Fueltype can't be empty</span>
+      </p>
+
+      
+      <label for="price">Price: </label>
+      <input id="price" name="price" type="text" formControlName="price"><br>
+  
+      <p *ngIf="carInfo.invalid && carInfo.touched">
+          <span *ngIf="carInfo.controls.name.errors?.['required']">Price can't be empty</span>
+      </p>
+
+
+
+      <label for="image">Image URL: </label>
+      <input id="image" name="image" type="text" formControlName="image"><br>
+  
+      <p *ngIf="carInfo.invalid && carInfo.touched">
+          <span *ngIf="carInfo.controls.name.errors?.['required']">Image URL can't be empty</span>
+      </p>
+
+
+      <input type="submit" value="Create">
+
+    </form>
+
